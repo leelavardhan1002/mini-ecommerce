@@ -13,6 +13,20 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      colors: {
+        PRIMARY: "#E5EFF8",
+        SECONDARY: "#FCFEFF",
+        TERTIARY: "#D8E9F8",
+      },
+      keyframes: {
+        linearDropdown: {
+          "0%": { opacity: "0", transform: "translateY(-20px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+      },
+      animation: {
+        linearDropdown: "linearDropdown 0.3s linear",
+      },
     },
   },
   plugins: [],
