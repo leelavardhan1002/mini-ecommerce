@@ -1,23 +1,12 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import SignupImage from "../../assets/Signup_Image.png";
-import Form from "@/components/molecules/Form";
-import toast from "react-hot-toast";
-import { useRouter } from "next/navigation";
-import Button from "@/components/atoms/Button";
 import { IoArrowBack } from "react-icons/io5";
+import Form from "@/components/molecules/Form";
+import Button from "@/components/atoms/Button";
+import { SignupProps } from "@/utils/types";
+import SignupImage from "../../assets/Signup_Image.png";
 
-interface SignupProps {
-  formInputs: {
-    id: string;
-    label: string;
-    type: string;
-    placeholder?: string;
-  }[];
-  onSubmit: (formData: { [key: string]: string }) => void;
-  handleBack: () => void;
-}
 const Signup: React.FC<SignupProps> = ({
   formInputs,
   onSubmit,

@@ -1,13 +1,5 @@
 import React from "react";
-
-interface InputProps {
-  id: string;
-  label: string;
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  type: string;
-  placeholder?: string;
-}
+import { InputProps } from "@/utils/types";
 
 const Input: React.FC<InputProps> = ({
   id,
@@ -15,6 +7,7 @@ const Input: React.FC<InputProps> = ({
   type = "text",
   placeholder = "",
   onChange,
+  onBlur,
   value,
 }) => {
   return (
@@ -29,6 +22,7 @@ const Input: React.FC<InputProps> = ({
         placeholder={placeholder}
         onChange={onChange}
         className="px-4 py-4 bg-[#dde2e7] rounded-xl focus:outline-none"
+        onBlur={onBlur}
       />
     </div>
   );

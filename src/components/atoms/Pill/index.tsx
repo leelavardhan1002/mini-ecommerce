@@ -1,9 +1,4 @@
-interface PillProps {
-  label: string;
-  isSelected: boolean;
-  onClick: (label: string) => void;
-  onSelect: (label: string) => void; // New prop
-}
+import { PillProps } from "@/utils/types";
 
 const Pill: React.FC<PillProps> = ({
   label,
@@ -13,7 +8,7 @@ const Pill: React.FC<PillProps> = ({
 }) => {
   const handleClick = () => {
     onClick(label);
-    onSelect(label); // Notify parent about the selection
+    onSelect(label);
   };
 
   return (

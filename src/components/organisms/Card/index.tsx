@@ -2,16 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { FaStar, FaRegHeart } from "react-icons/fa";
 import Button from "@/components/atoms/Button";
-
-interface ProductCardProps {
-  name: string;
-  price: number;
-  description: string;
-  image: string;
-  rating: number;
-  reviews: number;
-  onAddToCart: () => void;
-}
+import { ProductCardProps } from "@/utils/types";
 
 const ProductCard: React.FC<ProductCardProps> = ({
   name,

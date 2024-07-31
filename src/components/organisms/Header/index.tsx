@@ -1,16 +1,16 @@
 "use client";
+import React from "react";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
+import { useDispatch, useSelector } from "react-redux";
+import { BiCart } from "react-icons/bi";
 import Button from "@/components/atoms/Button";
 import Dropdown from "@/components/atoms/Dropdown";
 import SearchBar from "@/components/molecules/SearchBar";
 import { logout } from "@/redux/slices/authSlice";
 import { RootState } from "@/redux/store";
 import { Option } from "@/utils/types";
-import Image from "next/image";
-import { useRouter } from "next/navigation";
-import React from "react";
-import toast from "react-hot-toast";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
 
 const Header = ({ sampleOptions }: { sampleOptions: Option[] }) => {
   const router = useRouter();
@@ -50,7 +50,10 @@ const Header = ({ sampleOptions }: { sampleOptions: Option[] }) => {
         <SearchBar />
       </div>
       {isLoggedIn ? (
-        <div>
+        <div className="flex gap-4">
+          <div>
+            <Button Icon={BiCart} className="p-[0.7rem] rounded-md" />
+          </div>
           <Button
             text="Logout"
             onClick={handleLogout}
@@ -59,6 +62,9 @@ const Header = ({ sampleOptions }: { sampleOptions: Option[] }) => {
         </div>
       ) : (
         <div className="flex gap-4">
+          <div>
+            <Button Icon={BiCart} className="p-[0.7rem] rounded-md" />
+          </div>
           <Button
             text="Login"
             onClick={handleLogin}

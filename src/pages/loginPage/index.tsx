@@ -1,20 +1,10 @@
 import Image from "next/image";
-import SigninImage from "../../assets/Login_Image.png";
 import Link from "next/link";
+import { IoArrowBack } from "react-icons/io5";
 import Form from "@/components/molecules/Form";
 import Button from "@/components/atoms/Button";
-import { IoArrowBack } from "react-icons/io5";
-
-interface LoginProps {
-  formInputs: {
-    id: string;
-    label: string;
-    type: string;
-    placeholder?: string;
-  }[];
-  onSubmit: (formData: { [key: string]: string }) => void;
-  handleBack: () => void;
-}
+import { LoginProps } from "@/utils/types";
+import SigninImage from "../../assets/Login_Image.png";
 
 const Login: React.FC<LoginProps> = ({ formInputs, onSubmit, handleBack }) => {
   return (

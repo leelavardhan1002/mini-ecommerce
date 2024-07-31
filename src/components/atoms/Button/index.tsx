@@ -1,12 +1,5 @@
 import React from "react";
-
-interface ButtonProps {
-  text?: string;
-  Icon?: React.ElementType;
-  variant?: "solid" | "outline";
-  onClick?: () => void;
-  className?: string;
-}
+import { ButtonProps } from "@/utils/types";
 
 const Button: React.FC<ButtonProps> = ({
   text,
@@ -25,7 +18,7 @@ const Button: React.FC<ButtonProps> = ({
 
   return (
     <button className={buttonClass} onClick={onClick}>
-      {Icon && <Icon className="text-lg" data-testid="icon" />}
+      {Icon && <Icon className="text-xl" data-testid="icon" />}
       <span>{text}</span>
     </button>
   );

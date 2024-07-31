@@ -1,8 +1,8 @@
-import { setSearchQuery } from "@/redux/slices/searchSlice";
-import { RootState } from "@/redux/store";
 import React from "react";
 import { IoSearchOutline } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
+import { setSearchQuery } from "@/redux/slices/searchSlice";
+import { RootState } from "@/redux/store";
 
 const SearchBar: React.FC = () => {
   const dispatch = useDispatch();

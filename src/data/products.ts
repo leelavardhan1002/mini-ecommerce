@@ -411,18 +411,6 @@ export const products: Record<string, Product[]> = {
   ],
 };
 
-export const fetchProducts = async (category: string) => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (products[category]) {
-        resolve(products[category]);
-      } else {
-        reject(new Error("Category not found"));
-      }
-    }, 1000);
-  });
-};
-
 export const fetchAllProducts = async (): Promise<Product[]> => {
   return new Promise((resolve) => {
     setTimeout(() => {

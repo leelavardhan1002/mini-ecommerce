@@ -1,7 +1,7 @@
-import { DropdownProps } from "@/utils/types";
-import Image from "next/image";
 import React, { useState } from "react";
+import Image from "next/image";
 import { IoIosArrowDown } from "react-icons/io";
+import { DropdownProps } from "@/utils/types";
 
 const Dropdown: React.FC<DropdownProps> = ({ label, options, title, Icon }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,7 +11,7 @@ const Dropdown: React.FC<DropdownProps> = ({ label, options, title, Icon }) => {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={`flex items-center px-4 py-2 bg-white text-black rounded-md transition-all duration-300 ${
-          isOpen ? "border-b-4 border-blue-500" : ""
+          isOpen ? "border-b-4 border-blue-500" : "border-b-4 border-white"
         }`}
       >
         {Icon && <Icon className="text-lg" data-testid="icon" />}

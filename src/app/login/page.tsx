@@ -1,11 +1,11 @@
 "use client";
-import Login from "@/pages/loginPage";
 import React from "react";
-import { Providers } from "../provider";
 import { login } from "@/redux/slices/authSlice";
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { useRouter } from "next/navigation";
+import { Providers } from "../provider";
+import Login from "@/pages/loginPage";
 
 const LoginDashboard: React.FC = () => {
   const router = useRouter();

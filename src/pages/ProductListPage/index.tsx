@@ -1,10 +1,10 @@
 "use client";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import Pill from "@/components/atoms/Pill";
 import ProductCard from "@/components/organisms/Card";
 import { RootState } from "@/redux/store";
 import { Option, Product } from "@/utils/types";
-import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 
 const ProductsPage = ({
   allProducts,
