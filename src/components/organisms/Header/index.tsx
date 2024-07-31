@@ -11,6 +11,7 @@ import SearchBar from "@/components/molecules/SearchBar";
 import { logout } from "@/redux/slices/authSlice";
 import { RootState } from "@/redux/store";
 import { Option } from "@/utils/types";
+import { RiAccountCircleLine } from "react-icons/ri";
 
 const Header = ({ sampleOptions }: { sampleOptions: Option[] }) => {
   const router = useRouter();
@@ -21,6 +22,10 @@ const Header = ({ sampleOptions }: { sampleOptions: Option[] }) => {
     router.push("/login");
   };
 
+  const username = localStorage.getItem("users")
+    ? JSON.parse(localStorage.getItem("users") || "[]")[0].name
+    : "User";
+
   const handleLogout = () => {
     dispatch(logout());
     toast.success("User logged out successfully");
@@ -29,6 +34,12 @@ const Header = ({ sampleOptions }: { sampleOptions: Option[] }) => {
   const handleSignup = () => {
     router.push("/signup");
   };
+  const options = [
+    {
+      name: "Logout",
+      optionOnClick: handleLogout,
+    },
+  ];
 
   return (
     <header className="bg-white text-black p-4 flex flex-col md:flex-row justify-between items-center container mx-auto">
@@ -43,31 +54,41 @@ const Header = ({ sampleOptions }: { sampleOptions: Option[] }) => {
           label="Categories"
           title="Popular Categories"
           options={sampleOptions}
+          dropdownWidth="w-[20rem] md:w-[30rem]"
         />
       </div>
-      <div className="w-full md:w-1/3 mt-4 md:mt-0">
+      <div className="w-full md:w-1/3 mt-4 md:mt-0 flex">
         <SearchBar />
       </div>
+
       {isLoggedIn ? (
         <div className="flex gap-4 mt-4 md:mt-0">
           <div>
-            <Button Icon={BiCart} className="p-[0.7rem] rounded-md" />
+            <Button
+              Icon={BiCart}
+              className="p-[0.7rem] rounded-md bg-TERTIARY hover:bg-PRIMARY"
+            />
           </div>
-          <Button
-            text="Logout"
-            onClick={handleLogout}
-            className="rounded-lg px-4 py-2 font-bold"
+          <Dropdown
+            title={username}
+            Icon={RiAccountCircleLine}
+            options={options}
+            label="Account"
+            dropdownWidth="w-fit]"
           />
         </div>
       ) : (
         <div className="flex gap-4 mt-4 md:mt-0">
           <div>
-            <Button Icon={BiCart} className="p-[0.7rem] rounded-md" />
+            <Button
+              Icon={BiCart}
+              className="p-[0.7rem] rounded-md bg-TERTIARY hover:bg-PRIMARY"
+            />
           </div>
           <Button
             text="Login"
             onClick={handleLogin}
-            className="rounded-lg px-4 py-2 font-bold"
+            className="rounded-lg px-4 py-2 font-bold bg-TERTIARY hover:bg-PRIMARY"
           />
           <Button
             text="Signup"

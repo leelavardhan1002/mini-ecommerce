@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
-import { login } from "@/redux/slices/authSlice";
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { useRouter } from "next/navigation";
+import { login } from "@/redux/slices/authSlice";
 import { Providers } from "../provider";
 import Login from "@/pages/loginPage";
 

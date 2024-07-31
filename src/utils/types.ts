@@ -1,7 +1,8 @@
 export interface Option {
-  image: string;
   name: string;
-  quantity: number;
+  image?: string;
+  quantity?: number;
+  optionOnClick?: () => void;
 }
 
 export interface Product {
@@ -26,9 +27,10 @@ export interface ButtonProps {
 
 export interface DropdownProps {
   options: Option[];
-  label?: string;
-  title?: string;
+  label: string;
+  title: string;
   Icon?: React.ElementType;
+  dropdownWidth?: string;
 }
 
 export interface FormInputProps {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import Button from '../../Button';
 import { FaRegHeart } from 'react-icons/fa';
+import Button from '../../Button';
 
 describe('Button', () => {
   test('renders with text', () => {

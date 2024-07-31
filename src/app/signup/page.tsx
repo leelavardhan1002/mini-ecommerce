@@ -1,8 +1,8 @@
 "use client";
-import Signup from "@/pages/signupPage";
 import { useRouter } from "next/navigation";
 import React from "react";
 import toast from "react-hot-toast";
+import Signup from "@/pages/signupPage";
 
 const SignupDashboard: React.FC = () => {
   const router = useRouter();

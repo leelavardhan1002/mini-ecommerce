@@ -1,9 +1,10 @@
-import Header from "@/components/organisms/Header";
 import React from "react";
 import { Providers } from "./provider";
 import { fetchCategories } from "@/data/categories";
 import { fetchAllProducts } from "@/data/products";
 import ProductsPage from "@/pages/ProductListPage";
+import Banner from "@/components/organisms/Banner";
+import Header from "@/components/organisms/Header";
 import { Option } from "@/utils/types";
 
 const Home: React.FC = async () => {
@@ -14,7 +15,11 @@ const Home: React.FC = async () => {
     <div>
       <Providers>
         <Header sampleOptions={categoriesData} />
-        <ProductsPage allProducts={allProductsData} allCategories={categoriesData} />
+        <Banner />
+        <ProductsPage
+          allProducts={allProductsData}
+          allCategories={categoriesData}
+        />
       </Providers>
     </div>
   );
