@@ -25,17 +25,16 @@ const Header = ({ sampleOptions }: { sampleOptions: Option[] }) => {
     dispatch(logout());
     toast.success("User logged out successfully");
   };
+
   const handleSignup = () => {
     router.push("/signup");
   };
 
   return (
-    <header className="bg-white text-black p-4 flex justify-between items-center container mx-auto">
-      <div className="flex space-x-5">
+    <header className="bg-white text-black p-4 flex flex-col md:flex-row justify-between items-center container mx-auto">
+      <div className="flex items-center space-x-5">
         <Image
-          src={
-            "https://assets-global.website-files.com/63e857eaeaf853471d5335ff/63e86ab4c21faa7bc0bd90dd_Logo.svg"
-          }
+          src="https://assets-global.website-files.com/63e857eaeaf853471d5335ff/63e86ab4c21faa7bc0bd90dd_Logo.svg"
           alt="ShopcartLogo"
           width={150}
           height={150}
@@ -46,11 +45,11 @@ const Header = ({ sampleOptions }: { sampleOptions: Option[] }) => {
           options={sampleOptions}
         />
       </div>
-      <div className="w-1/3">
+      <div className="w-full md:w-1/3 mt-4 md:mt-0">
         <SearchBar />
       </div>
       {isLoggedIn ? (
-        <div className="flex gap-4">
+        <div className="flex gap-4 mt-4 md:mt-0">
           <div>
             <Button Icon={BiCart} className="p-[0.7rem] rounded-md" />
           </div>
@@ -61,7 +60,7 @@ const Header = ({ sampleOptions }: { sampleOptions: Option[] }) => {
           />
         </div>
       ) : (
-        <div className="flex gap-4">
+        <div className="flex gap-4 mt-4 md:mt-0">
           <div>
             <Button Icon={BiCart} className="p-[0.7rem] rounded-md" />
           </div>

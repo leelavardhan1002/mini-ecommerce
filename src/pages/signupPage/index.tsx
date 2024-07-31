@@ -14,8 +14,8 @@ const Signup: React.FC<SignupProps> = ({
 }) => {
   return (
     <div className="bg-gray-300 h-screen w-screen flex justify-center items-center">
-      <div className="container flex h-3/4">
-        <div className="p-8 rounded-lg w-1/2 bg-SECONDARY flex items-center justify-center">
+      <div className="container flex flex-col-reverse md:flex-row h-3/4">
+        <div className="p-8 rounded-lg w-full md:w-1/2 bg-SECONDARY flex items-center justify-center">
           <div className="w-3/4">
             <Button
               Icon={IoArrowBack}
@@ -41,7 +41,7 @@ const Signup: React.FC<SignupProps> = ({
             </div>
           </div>
         </div>
-        <div className="p-8 rounded-r-lg w-1/2  bg-PRIMARY flex items-center justify-center">
+        <div className="p-8 rounded-r-lg w-full md:w-1/2  bg-PRIMARY flex items-center justify-center">
           <div className="flex justify-center mt-10">
             <Image src={SignupImage} alt="SignInImage" height={300} priority />
           </div>
