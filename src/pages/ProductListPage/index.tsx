@@ -1,7 +1,8 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
-import Pill from "@/components/atoms/Pill";
+import { useSearchParams } from "next/navigation";
+import CategoryPills from "@/components/molecules/CategoryPills";
 import ProductCard from "@/components/organisms/Card";
 import { RootState } from "@/redux/store";
 import { Option, Product } from "@/utils/types";
@@ -13,53 +14,30 @@ const ProductsPage = ({
   allProducts: Product[];
   allCategories: Option[];
 }) => {
-  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-
   const handleAddToCart = (productName: string) => {
     console.log(`${productName} added to cart`);
   };
 
   const query = useSelector((state: RootState) => state.search.query);
+  const searchParams = useSearchParams();
+  const selectedCategory = searchParams?.get("category");
 
-  useEffect(() => {
-    let updatedProducts = allProducts;
+  const filteredProducts = allProducts.filter((product) => {
+    const matchesQuery = query
+      ? product.name.toLowerCase().includes(query.toLowerCase())
+      : true;
 
-    if (query) {
-      updatedProducts = updatedProducts.filter((product) =>
-        product.name.toLowerCase().includes(query.toLowerCase())
-      );
-    }
+    const matchesCategory = selectedCategory
+      ? product.category === selectedCategory
+      : true;
 
-    if (selectedCategory) {
-      updatedProducts = updatedProducts.filter(
-        (product) => product.category === selectedCategory
-      );
-    }
-
-    setFilteredProducts(updatedProducts);
-  }, [query, selectedCategory, allProducts]);
+    return matchesQuery && matchesCategory;
+  });
 
   return (
     <div className="container mx-auto">
       <p className="text-xl font-bold">Todays Best Deals For You!</p>
-      <div className="flex flex-wrap gap-2 my-4">
-        <Pill
-          label="All Products"
-          isSelected={selectedCategory === null}
-          onClick={() => console.log("All Products clicked")}
-          onSelect={() => setSelectedCategory(null)}
-        />
-        {allCategories.map((category) => (
-          <Pill
-            key={category.name}
-            label={category.name}
-            isSelected={selectedCategory === category.name}
-            onClick={() => console.log(`Pill clicked: ${category.name}`)}
-            onSelect={(label) => setSelectedCategory(label)}
-          />
-        ))}
-      </div>
+      <CategoryPills allCategories={allCategories} />
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 place-items-center">
         {filteredProducts.map((product) => (
           <ProductCard
