@@ -1,5 +1,4 @@
 import React from "react";
-import { Providers } from "./provider";
 import { fetchCategories } from "@/data/categories";
 import { fetchAllProducts } from "@/data/products";
 import ProductsPage from "@/pages/ProductListPage";
@@ -13,14 +12,12 @@ const Home: React.FC = async () => {
 
   return (
     <div>
-      <Providers>
         <Header sampleOptions={categoriesData} />
         <Banner />
         <ProductsPage
           allProducts={allProductsData}
           allCategories={categoriesData}
         />
-      </Providers>
     </div>
   );
 };

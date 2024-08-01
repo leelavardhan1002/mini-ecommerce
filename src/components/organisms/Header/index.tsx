@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
@@ -17,15 +17,24 @@ const Header = ({ sampleOptions }: { sampleOptions: Option[] }) => {
   const router = useRouter();
   const dispatch = useDispatch();
   const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn);
+  const [username, setUsername] = useState<string>("User");
 
   const handleLogin = () => {
     router.push("/login");
   };
 
-  const username = localStorage.getItem("users")
-    ? JSON.parse(localStorage.getItem("users") || "[]")[0].name
-    : "User";
-
+  useEffect(() => {
+    // This code runs only on the client side
+    if (typeof window !== "undefined") {
+      const storedUsers = localStorage.getItem("users");
+      if (storedUsers) {
+        const users = JSON.parse(storedUsers);
+        if (users.length > 0) {
+          setUsername(users[0].name);
+        }
+      }
+    }
+  }, []);
   const handleLogout = () => {
     dispatch(logout());
     toast.success("User logged out successfully");

@@ -14,8 +14,8 @@ const Signup: React.FC<SignupProps> = ({
 }) => {
   return (
     <div className="bg-gray-300 h-screen w-screen flex justify-center items-center">
-      <div className="container flex h-3/4">
-        <div className="container rounded-lg w-full md:w-1/2 bg-SECONDARY flex items-center justify-center">
+      <div className="container flex h-fit">
+        <div className="container rounded-lg w-full md:w-1/2 py-4 bg-SECONDARY flex items-center justify-center">
           <div className="w-3/4">
             <Button
               Icon={IoArrowBack}

@@ -4,7 +4,6 @@ import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { useRouter } from "next/navigation";
 import { login } from "@/redux/slices/authSlice";
-import { Providers } from "../provider";
 import Login from "@/pages/loginPage";
 
 const LoginDashboard: React.FC = () => {
@@ -56,13 +55,11 @@ const LoginDashboard: React.FC = () => {
   };
 
   return (
-    <Providers>
       <Login
         formInputs={formInputs}
         onSubmit={handleSubmit}
         handleBack={handleBack}
       />
-    </Providers>
   );
 };
 

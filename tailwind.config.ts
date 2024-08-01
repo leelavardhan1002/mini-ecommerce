@@ -4,7 +4,7 @@ const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
     "./.storybook/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
@@ -18,15 +18,6 @@ const config: Config = {
         PRIMARY: "#E5EFF8",
         SECONDARY: "#FCFEFF",
         TERTIARY: "#D8E9F8",
-      },
-      keyframes: {
-        linearDropdown: {
-          "0%": { opacity: "0", transform: "translateY(-20px)" },
-          "100%": { opacity: "1", transform: "translateY(0)" },
-        },
-      },
-      animation: {
-        linearDropdown: "linearDropdown 0.3s linear",
       },
     },
   },

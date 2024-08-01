@@ -19,7 +19,6 @@ export interface Product {
 export interface ButtonProps {
   text?: string;
   Icon?: React.ElementType;
-  variant?: "solid" | "outline";
   onClick?: () => void;
   className?: string;
   type?: string;
