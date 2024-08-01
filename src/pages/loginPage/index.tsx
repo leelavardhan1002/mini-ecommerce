@@ -34,7 +34,7 @@ const Login: React.FC<LoginProps> = ({ formInputs, onSubmit, handleBack }) => {
             </div>
             <div className="text-center">
               <p className="text-lg  my-10">- OR -</p>
-              <span>Don't have an account? </span>
+              <span>Don&apos;t have an account? </span>
               <Link href={"/signup"} className="text-blue-600 font-bold">
                 Sign-Up
               </Link>
